@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recipe-api
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: recipe-api
+  template:
+    metadata:
+      labels:
+        app: recipe-api
+    spec:
+      containers:
+      - image: docker.io/mikenabhan/country-recipe-finder:release-8305af8
+        name: recipe-api
+        ports:
+        - containerPort: 5000
