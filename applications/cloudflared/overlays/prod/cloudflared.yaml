@@ -60,3 +60,8 @@ data:
     no-autoupdate: true
     ingress:
     - service: http_status:404
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cloudflared
