@@ -3,4 +3,4 @@ kind: Deployment
 metadata:
   name: busybox
 spec:
-  replicas: 0
+  replicas: 1
