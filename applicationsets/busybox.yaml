@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: recipe-api
+  name: busybox
 spec:
   generators:
   - list:
