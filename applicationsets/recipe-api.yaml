@@ -22,3 +22,16 @@ spec:
       destination:
         server: '{{url}}'
         namespace: recipe-api
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: false
+        retry:
+          backoff:
+            duration: 90s
+            factor: 3
+            maxDuration: 20m
+          limit: 4
+        syncOptions:
+          - CreateNamespace=true
