@@ -12,13 +12,13 @@ spec:
         url: https://10.1.1.30:6443
   template:
     metadata:
-      name: '{{cluster}}-recipe-api'
+      name: '{{cluster}}-busybox'
     spec:
       project: default
       source:
         repoURL: https://github.com/nabhanxyz/argocd.git
         targetRevision: HEAD
-        path: applications/recipe-api/overlays/{{cluster}}
+        path: applications/busybox/overlays/{{cluster}}
       destination:
         server: '{{url}}'
-        namespace: recipe-api
+        namespace: busybox
