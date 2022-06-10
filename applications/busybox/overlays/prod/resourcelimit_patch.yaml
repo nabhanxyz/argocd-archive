@@ -4,3 +4,11 @@ metadata:
   name: busybox
 spec:
   replicas: 2
+  template:
+    spec:
+      containers:
+      - image: docker.io/busybox:stable
+        name: busybox
+        env:
+        - name: ENVIRONMENT
+          value: prod
