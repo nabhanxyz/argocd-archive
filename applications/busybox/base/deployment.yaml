@@ -16,6 +16,9 @@ spec:
       containers:
       - image: docker.io/busybox:stable
         name: busybox
+        command:
+          - sleep
+          - "3600"
         resources:
           requests:
             memory: "200Mi"
