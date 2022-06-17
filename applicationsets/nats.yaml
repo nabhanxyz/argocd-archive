@@ -19,7 +19,7 @@ spec:
         server: "{{url}}"
       project: default
       source:
-        path: applications/busybox/overlays/{{cluster}}
+        path: applications/nats/overlays/{{cluster}}
         repoURL: https://github.com/nabhanxyz/argocd.git
         targetRevision: HEAD
       syncPolicy:
