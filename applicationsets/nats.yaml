@@ -4,8 +4,8 @@ metadata:
   name: nats
 spec:
   generators:
-    - list:
-        elements:
+  - list:
+      elements:
       - cluster: dev
         url: https://dev.nabhan.xyz:6443
       - cluster: prod
