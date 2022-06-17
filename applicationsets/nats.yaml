@@ -1,31 +1,33 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
   name: nats
-  namespace: nats
 spec:
-  project: default
-  source:
-    chart: nats/nats
-    repoURL: https://nats-io.github.io/k8s/helm/charts/
-    targetRevision: develop
-    helm:
-      releaseName: 1.16.1
-      valueFiles:
-        - ../applications/nats/dev/values.yaml
-  destination:
-    server: "https://dev.nabhan.xyz:6443"
-    namespace: nats
-  syncPolicy:
-    automated:
-      allowEmpty: false
-      prune: true
-      selfHeal: true
-    retry:
-      backoff:
-        duration: 60s
-        factor: 2
-        maxDuration: 15m
-      limit: 3
-    syncOptions:
-      - CreateNamespace=true
+  generators:
+    - list:
+        elements:
+      - cluster: dev
+        url: https://dev.nabhan.xyz:6443
+      - cluster: prod
+        url: https://10.1.1.30:6443
+  template:
+    metadata:
+      name: nats-{{cluster}}
+    spec:
+      destination:
+        namespace: nats
+        server: "{{url}}"
+      project: default
+      source:
+        path: applications/busybox/overlays/{{cluster}}
+        repoURL: https://github.com/nabhanxyz/argocd.git
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          allowEmpty: false
+          prune: true
+          selfHeal: true
+        retry:
+          limit: 5
+        syncOptions:
+          - CreateNamespace=true
