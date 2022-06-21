@@ -13,6 +13,6 @@ spec:
       releaseName: nats
       valueFiles:
         - values.yaml
-  destination:
-    server: "https://dev.nabhan.xyz:6443"
-    namespace: nats
+#   destination:
+#     server: "https://dev.nabhan.xyz:6443"
+#     namespace: nats
