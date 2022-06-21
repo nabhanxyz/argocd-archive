@@ -6,11 +6,11 @@ metadata:
 spec:
   project: default
   source:
-    chart: nats/nats
+    chart: 1.16.1
     repoURL: https://nats-io.github.io/k8s/helm/charts/
     targetRevision: HEAD
     helm:
-      releaseName: 1.16.1
+      releaseName: nats
       valueFiles:
         - values.yaml
   destination:
