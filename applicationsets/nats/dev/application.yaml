@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    chart: 1.16.1
+    chart: nats
     repoURL: https://nats-io.github.io/k8s/helm/charts/
-    targetRevision: HEAD
+    targetRevision: 0.17.1
     helm:
       releaseName: nats
       valueFiles:
@@ -16,3 +16,6 @@ spec:
   destination:
     server: "https://dev.nabhan.xyz:6443"
     namespace: nats
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
