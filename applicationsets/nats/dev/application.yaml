@@ -14,7 +14,7 @@ spec:
       values: |
         cluster:
           enabled: true
-          replicas: 3
+          replicas: 4
         nats:
           jetstream:
             enabled: true
