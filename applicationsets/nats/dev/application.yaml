@@ -15,6 +15,18 @@ spec:
         cluster:
           enabled: true
           replicas: 3
+        nats:
+          jetstream:
+            enabled: true
+        
+            memStorage:
+              enabled: true
+              size: 500Mi
+        
+            fileStorage:
+              enabled: true
+              size: 1Gi
+              storageDirectory: /data/
   destination:
     server: "https://dev.nabhan.xyz:6443"
     namespace: nats
