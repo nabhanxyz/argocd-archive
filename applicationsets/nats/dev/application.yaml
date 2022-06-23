@@ -11,8 +11,10 @@ spec:
     targetRevision: 0.17.1
     helm:
       releaseName: nats
-      valueFiles:
-        - values.yaml
+      values: |
+        cluster:
+          enabled: true
+          replicas: 3
   destination:
     server: "https://dev.nabhan.xyz:6443"
     namespace: nats
