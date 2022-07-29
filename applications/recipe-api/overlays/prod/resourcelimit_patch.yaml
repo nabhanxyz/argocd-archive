@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: recipe-api
   annotations:
-    - foo: bar
 spec:
   replicas: 2
   template:
